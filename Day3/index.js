@@ -207,6 +207,7 @@ console.log(now.getFullYear());
 console.log(now.getMonth());
 console.log(now.getDate() + " " + month + " " + now.getFullYear());
 
+//! Level 2
 console.log("Exercise: Level 2\n-----------");
 //1.
 let activeTriangle = false;
@@ -237,6 +238,139 @@ if (activeRectangle) {
 console.log((areaR = length * width));
 console.log((perimeterR = 2 * (length + width)));
 //4.
+let activeCircle = false;
+let radius, areaC, circumference;
+if (activeCircle) {
+  radius = parseInt(prompt("Enter radius"));
+}
+console.log((areaC = Math.PI * radius ** 2));
+console.log((circumference = 2 * Math.PI * radius));
+//5.  y = 2x-2
+const slope = 2;
+const yIntercept = -2;
+const xIntercept = -yIntercept / slope;
 
+console.log("Slope:", slope);
+console.log("Y-intercept:", yIntercept);
+console.log("X-intercept:", xIntercept);
+//6.
+let x1 = 2,
+  y1 = 2,
+  x2 = 6,
+  y2 = 10;
+const m = (y2 - y1) / (x2 - x1);
+console.log("Slope: ", m);
+//7.
+console.log(slope == m);
+//8.
+let x = -3;
+console.log(x ** 2 + 6 * x + 9);
+//9.
+let activeCalculate = false;
+let hours, rate;
+if (activeCalculate) {
+  hours = parseInt(prompt("Enter Hours"));
+  rate = parseInt(prompt("Enter rate"));
+}
+console.log("You earned: ", hours * rate);
+//10.
+let name =
+  "Kiara".split("").length > 7
+    ? console.log("Your name is long")
+    : console.log("Your name is short");
+//11.
+let lettersF = "Kiara".split(""),
+  lettersN = "Hannig".split("");
+lettersF.length > lettersN.length
+  ? console.log(
+      `Your firstname ${lettersF.join()} is longer then your Familyname ${lettersN.join(
+        ""
+      )}`
+    )
+  : console.log(
+      `Your Familyname ${lettersN.join(
+        ""
+      )} is longer then your Firstname ${lettersF.join("")}`
+    );
+//12.
+let myAge = 25,
+  yourAge = 250;
+myAge > yourAge
+  ? console.log(`I am ${myAge - yourAge} years older than you`)
+  : console.log(`You are ${yourAge - myAge} years older then me`);
+//13.
+let activeDrive = false,
+  dob;
+if (activeDrive) dob = parseInt(prompt("Enter DOB"));
+let yearD = now.getFullYear();
+yearD - dob >= 18
+  ? console.log(`You are ${yearD - dob} years old. You are allowd to drive`)
+  : console.log(
+      `You are ${yearD - dob} years old. You will be allowed to drive in ${
+        18 - (yearD - dob)
+      } years`
+    );
+//14.
+let activeSeconds = false,
+  years;
+if (activeSeconds) years = parseInt(prompt("Enter your years"));
+console.log(`You lived ${years * 365 * 24 * 60 * 60} seconds`);
+//15.
+// i
+console.log(
+  now.getFullYear(),
+  "-",
+  parseInt(now.getMonth()) + 1,
+  "-",
+  now.getDate(),
+  " ",
+  now.getHours(),
+  ":",
+  now.getMinutes()
+);
+// ii
+console.log(
+  now.getDate(),
+  "-",
+  parseInt(now.getMonth()) + 1,
+  "-",
+  now.getFullYear(),
+  " ",
+  now.getHours(),
+  ":",
+  now.getMinutes()
+);
+// iii
+console.log(
+  now.getDate(),
+  "/",
+  parseInt(now.getMonth()) + 1,
+  "/",
+  now.getFullYear(),
+  " ",
+  now.getHours(),
+  ":",
+  now.getMinutes()
+);
 
+//! Level 3
 console.log("Exercise: Level 3\n-----------");
+let minutes, hours3;
+now.getMinutes() < 10
+  ? (minutes = "0" + now.getMinutes())
+  : (minutes = now.getMinutes());
+now.getHours() < 10
+  ? (hours3 = "0" + now.getHours())
+  : (hours3 = now.getHours());
+
+console.log(
+  now.getFullYear(),
+  "-",
+  parseInt(now.getMonth()) + 1,
+  "-",
+  now.getDate(),
+  " ",
+  hours3,
+  ":",
+  minutes
+);

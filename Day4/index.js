@@ -91,7 +91,7 @@ isRaining
 */
 
 //! Exercise: Level 1
-console.log("Exercise: Level 1\n-----------");
+  console.log("Exercise: Level 1\n-----------");
 //1.
 let acitveAge = false,
   age;

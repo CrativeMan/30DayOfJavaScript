@@ -145,8 +145,8 @@ console.log(`${date}/${month}/${year} ${hours}:${minutes}`);
 */
 
 //! Exercise: Level 1
-// 1.
 console.log("Exercise: Level 1\n-----------");
+// 1.
 let firstName = "Kiara",
   lastName = "Hannig",
   country = "Germany",

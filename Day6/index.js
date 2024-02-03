@@ -438,3 +438,62 @@ for (item in fullStack) {
 }
 */
 //#endregion
+
+//#region Exercise Level 3
+const countries = [
+  "Albania",
+  "Bolivia",
+  "Canada",
+  "Denmark",
+  "Ethiopia",
+  "Finland",
+  "Germany",
+  "Hungary",
+  "Ireland",
+  "Japan",
+  "Kenya",
+]
+
+const webTechs = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Redux",
+  "Node",
+  "MongoDB",
+]
+
+const mernStack = ["MongoDB", "Express", "React", "Node"]
+const sortedCountries = countries.sort()
+console.log(sortedCountries)
+webTechs.sort()
+mernStack.sort()
+const land = []
+for (country in countries) {
+  if (countries[country].includes("land")) {
+    land.push(countries[country])
+  }
+}
+console.log(land)
+let longest = "",
+  loenghtie = []
+for (index in countries) {
+  let value = []
+  value.push(countries[index].length)
+  value.push(parseInt(index))
+  loenghtie.push(value)
+}
+loenghtie.sort()
+console.log(countries[loenghtie[loenghtie.length - 1][1]])
+const four = []
+for (index in countries) {
+  if (countries[index].length == 4) four.push(countries[index])
+}
+console.log(four)
+const cap = []
+for (index in countries) {
+  cap.push(countries[index].toUpperCase())
+}
+cap.reverse()
+console.log(cap)

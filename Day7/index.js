@@ -145,8 +145,6 @@ console.log(greetings("Kiara"))
 */
 //#endregion
 
-const { add } = require("nodemon/lib/rules")
-
 //#region Exercise: Level 1
 console.log("Exercise: Level 1:")
 //! Exercise Level 1:
@@ -269,6 +267,7 @@ findMax(1, 4, 6, 1, 4, 10, 5, 6, 17, 18)
 //#endregion
 
 //#region Exercise: Level 2
+/*
 console.log("Exercise: Level 2:")
 //! Exercise Level 2:
 //1
@@ -461,11 +460,143 @@ const userIdGenerator = ((length) => {
   }
   console.log(id)
 })(7)
-
+*/
 //#endregion
 
 //#region Exercise: Level 3
-console.log('Exercise: Level 3:')
+console.log("Exercise: Level 3:")
 //! Exercise Level 3:
+// 1
+let chars = [],
+  lengthOfIds = 7,
+  numberOfIds = 1,
+  ids = []
+for (let i = 0; i < 10; i++) {
+  chars.push(i.toString())
+}
+for (let i = 97; i <= 122; i++) {
+  chars.push(String.fromCharCode(i))
+  chars.push(String.fromCharCode(i).toUpperCase())
+}
+
+const userIdGenerator = (() => {
+  // lengthOfIds = prompt("How long should your Ids be")
+  // numberOfIds = prompt("How many Ids do you want")
+  for (let i = 0; i < numberOfIds; i++) {
+    id = ""
+    for (let i = 0; i < lengthOfIds; i++) {
+      id += chars[Math.floor(Math.random() * chars.length)].toString()
+    }
+    ids.push(id)
+  }
+  console.log(ids.join(",\n"))
+})()
+// 2
+const rgbColorGenerator = (() => {
+  const color = []
+  for (let i = 0; i < 3; i++) {
+    color.push(parseInt(Math.random() * 256))
+  }
+  console.log(`rgb(${color.join(",")})`)
+})()
+// 3
+chars = []
+let hexcodes = []
+
+for (let i = 0; i < 10; i++) {
+  chars.push(i.toString())
+}
+for (let i = 97; i < 103; i++) {
+  chars.push(String.fromCharCode(i))
+}
+
+const arrayOfHexaColors = ((length = 3) => {
+  for (let i = 0; i < length; i++) {
+    const hexcode = []
+    for (let i = 0; i < 3; i++) {
+      let current = ""
+      for (let i = 0; i < 2; i++) {
+        current += chars[Math.floor(Math.random() * 16)]
+      }
+      hexcode.push(current)
+    }
+    hexcodes.push(hexcode)
+  }
+  for (let i = 0; i < length; i++) {
+    console.log(`${i + 1}. #${hexcodes[i].join("")}`)
+  }
+})()
+// 4
+const rgbColors = []
+const arrayOfRgbCollors = ((length = 3) => {
+  for (let i = 0; i < length; i++) {
+    const temp = []
+    for (let j = 0; j < 3; j++) {
+      temp.push(Math.round(Math.random() * 256))
+    }
+    rgbColors.push(temp.join(","))
+  }
+  for (let i = 0; i < rgbColors.length; i++) {
+    console.log(
+      `${i + 1}. rbg(${rgbColors[i]
+        .concat(",")
+        .substring(0, rgbColors[i].concat(",").length - 1)})`
+    )
+  }
+})()
+// 5
+const hexaTable = []
+
+for (let i = 0; i < 10; i++) {
+  hexaTable.push(i.toString())
+}
+for (let i = 97; i < 103; i++) {
+  hexaTable.push(String.fromCharCode(i))
+}
+
+const convertHexaToRgb = ((color = "hexa", code = "255,255,255") => {
+  let formatedHexCode = ""
+  if (color == "rgb") {
+    //* Convert to rgb
+    // Format hexcode
+    formatedHexCode = code.substring(1, code.length)
+    // parse the individual codes to decimal
+    let r = parseInt(formatedHexCode.substring(0, 2), 16)
+    let g = parseInt(formatedHexCode.substring(2, 4), 16)
+    let b = parseInt(formatedHexCode.substring(4, 6), 16)
+
+    console.log(`rbg(${r},${g},${b})`)
+  } else if (color == "hexa") {
+    //* Convert to hexa
+    // split rgb into r g and b
+    let a = parseInt(code.substring(0, 3))
+    let b = parseInt(code.substring(4, 7))
+    let c = parseInt(code.substring(8, 11))
+    let red = a.toString(16)
+    let green = b.toString(16)
+    let blue = c.toString(16)
+    if (a < 16) red = "0" + red
+    if (b < 16) green = "0" + green
+    if (c < 16) blue = "0" + blue
+    console.log(`#${red}${green}${blue}`)
+  } else {
+    console.log("Invalid input")
+  }
+})()
+// 6
+// 7
+// 8
+// 9
+// 10
+// 11
+// 12
+// 13
+// 14
+// 15
+// 16
+// 17
+// 18
+// 19
+// 20
 
 //#endregion

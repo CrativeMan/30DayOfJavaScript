@@ -544,7 +544,7 @@ const arrayOfRgbCollors = ((length = 3) => {
     )
   }
 })()
-// 5
+// 5 und 6
 const hexaTable = []
 
 for (let i = 0; i < 10; i++) {
@@ -583,20 +583,220 @@ const convertHexaToRgb = ((color = "hexa", code = "255,255,255") => {
     console.log("Invalid input")
   }
 })()
-// 6
 // 7
+console.log("7.------------------")
+const colors = [],
+  hexaCodes = []
+
+for (let i = 0; i < 10; i++) {
+  hexaCodes.push(i.toString())
+}
+for (let i = 97; i < 103; i++) {
+  hexcodes.push(String.fromCharCode(i))
+}
+
+const generateColors = ((type = "rgb", amount = 3) => {
+  if (type == "rgb") {
+    for (let i = 0; i < amount; i++) {
+      const temp = []
+      for (let j = 0; j < 3; j++) {
+        temp.push(Math.round(Math.random() * 256))
+      }
+      colors.push(temp.join(","))
+    }
+    for (let i = 0; i < colors.length; i++) {
+      console.log(
+        `${i + 1}. rbg(${colors[i]
+          .concat(",")
+          .substring(0, colors[i].concat(",").length - 1)})`
+      )
+    }
+  } else {
+    for (let i = 0; i < amount; i++) {
+      const hexcode = []
+      for (let i = 0; i < 3; i++) {
+        let current = ""
+        for (let i = 0; i < 2; i++) {
+          current += chars[Math.floor(Math.random() * 16)]
+        }
+        hexcode.push(current)
+      }
+      colors.push(hexcode)
+    }
+    for (let i = 0; i < amount; i++) {
+      console.log(`${i + 1}. #${colors[i].join("")}`)
+    }
+  }
+})()
 // 8
+const shuffledArray = ((arr) => {
+  const newArray = [],
+    usedRanIndicies = []
+  for (let i = 0; i < arr.length; i++) {
+    let ranIndex = Math.floor(Math.random() * arr.length)
+    if (usedRanIndicies.includes(ranIndex)) {
+      i--
+      continue
+    } else {
+      newArray.push(arr[ranIndex])
+      usedRanIndicies.push(ranIndex)
+    }
+  }
+  console.log(newArray)
+})(["A", "B", "C", "D", "E", "F"])
 // 9
+const factorial = ((num) => {
+  let factorial = 1
+  for (let i = 0; i < num; i++) {
+    factorial *= num - i
+  }
+  console.log(factorial)
+})(7)
 // 10
+const isEmpty = ((arg) => {
+  if (arg !== undefined) {
+    console.log("arg isnt empty")
+  } else {
+    console.log("arg is empty")
+  }
+})()
 // 11
+const sum = ((...args) => {
+  let sum = 0
+  for (const i of args) {
+    sum += i
+  }
+  console.log(sum)
+})(1, 2, 3, 4, 5, 6)
 // 12
+const sumOfArrayItems = ((arr) => {
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i]
+  }
+  console.log(sum)
+})([1, 2, 3, 4, 5, 6])
 // 13
+const average = ((arr = []) => {
+  let sum = 0
+  if (!arr.some((i) => !Number.isInteger(i))) {
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i]
+    }
+    console.log(sum)
+    console.log(sum / arr.length)
+  } else {
+    console.log("not a number")
+  }
+})([1, 2, 3, 4, 5, 6, 7])
 // 14
+const modifyArray = ((arr = []) => {
+  let newArr = []
+  if (arr.length >= 5) {
+    for (let i = 0; i < arr.length; i++) {
+      if (i == 4) {
+        newArr.push(arr[i].toUpperCase())
+      } else {
+        newArr.push(arr[i])
+      }
+    }
+    console.log(newArr)
+  } else {
+    console.log("Not found")
+  }
+})(["abc", "abc", "abc", "abc", "abc", "abc"])
 // 15
+let prime = true
+const isPrime = ((num) => {
+  if (num === 1) console.log("1 is neither prime nor composite number.")
+  else if (num > 1) {
+    for (let i = 2; i < num; i++) {
+      if (num % i == 0) {
+        prime = false
+        break
+      }
+    }
+    prime ? console.log("Is prime") : console.log("Isnt prime")
+  } else console.log("number is not a prime")
+})(14)
 // 16
+const isUniqueArr = ((arr = []) => {
+  let check = [],
+    unique = true
+  for (let i = 0; i < arr.length; i++) {
+    if (check.includes(arr[i])) {
+      unique = false
+      break
+    } else check.push(arr[i])
+  }
+  console.log(unique)
+})([1, 2, 3, 4, 3])
 // 17
+const isSameType = ((arr = []) => {
+  let check = [],
+    sameType = true
+  check.push(arr[0])
+  console.log(check)
+  //
+  for (let i = 1; i < arr.length; i++) {
+    if (typeof arr[i] !== typeof check[i - 1]) {
+      sameType = false
+      break
+    } else check.push(arr[i])
+  }
+  //
+  console.log(check)
+  console.log(sameType)
+})([1, 2, 3, 4, "5"])
 // 18
+let valid = true
+let abc = ["$", "_"]
+for (let i = 97; i < 123; i++) {
+  abc.push(String.fromCharCode(i))
+}
+const isValidVariable = ((variable = "") => {
+  const varr = variable.split("")
+  console.log(varr)
+  for (let i = 0; i < varr.length; i++) {
+    if (!abc.includes(varr[i])) {
+      valid = false
+      break
+    } else continue
+  }
+  console.log(valid)
+})("abc")
 // 19
+const sevenRandomNumbers = (() => {
+  const num = []
+  for (let i = 0; i < 7; i++) {
+    let ranNum = Math.floor(Math.random() * 10)
+    if (num.includes(ranNum)) {
+      i--
+      continue
+    } else num.push(ranNum)
+  }
+  console.log(num.join(","))
+})()
 // 20
+const countries = [
+  "Albania",
+  "Bolivia",
+  "Canada",
+  "Denmark",
+  "Finland",
+  "Germany",
+  "Hungary",
+  "Ireland",
+  "Japan",
+  "Kenya",
+  "test",
+]
+const reverseCountries = ((arr = []) => {
+  const reversed = []
+  for (let i = 1; i <= arr.length; i++) {
+    reversed.push(arr[arr.length - i])
+  }
+  console.log(reversed)
+})(countries)
 
 //#endregion

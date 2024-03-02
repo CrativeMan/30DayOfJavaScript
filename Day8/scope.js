@@ -344,7 +344,7 @@ personAccount.addIncome(100)
 personAccount.addExpense(40)
 personAccount.addExpense(40)
 console.log(personAccount.accountBalance())
-// 2
+// 2, 3, 4
 //* Users DB
 const users = [
   {
@@ -453,7 +453,7 @@ function signUp(username, email, password) {
 
 function signIn(usernameOrEmail, password) {
   if (_checkIfUserExists(usernameOrEmail)) {
-    for (let i = 0; i < users.length; i++) {
+    for (i in users) {
       if (
         users[i].username == usernameOrEmail ||
         (users[i].email == usernameOrEmail && users[i].password == password)
@@ -502,7 +502,40 @@ function rateProduct(productName, userName, rating) {
   }
 }
 
-function averageRating(productName) {}
+function averageRating(productName) {
+  let count = 0,
+    average = 0
+  for (i in products) {
+    if (products[i].name == productName) {
+      for (j in products[i].ratings) {
+        average += products[i].ratings[j].rate
+        count++
+      }
+      console.log(average / count)
+    }
+  }
+}
+
+function likeProduct(productName, userName) {
+  if (_checkIfUserExists(userName)) {
+    if (!_hasUserAlreadyLiked(productName, userName)) {
+      for (i in products) {
+        if (products[i].name == productName) {
+          products[i].likes.push(_getUserId(userName))
+          console.log(`${userName} liked product ${productName}`)
+        }
+      }
+    } else {
+      for (i in products) {
+        if (products[i].name == productName) {
+          let index = products[i].likes.indexOf(_getUserId(userName))
+          products[i].likes.splice(index, 1)
+          console.log(`${userName} unliked product ${productName}`)
+        }
+      }
+    }
+  }
+}
 
 //* Helper functions
 function _generateId() {
@@ -516,7 +549,7 @@ function _generateId() {
 }
 function _checkIfIdExists(id) {
   for (i in users) {
-    if (users[i][0] == id) {
+    if (users[i]._id == id) {
       _generateId()
     } else new_id = id
   }
@@ -531,9 +564,7 @@ function _getDate() {
 function _checkIfUserAlreadyExists(username, email) {
   let exists = false
   for (i in users) {
-    if (users[i].username == username) {
-      exists = true
-    } else if (users[i].email == email) {
+    if (users[i].username == username || users[i].email == email) {
       exists = true
     }
   }
@@ -555,12 +586,26 @@ function _getUserId(userName) {
     if (users[user].username == userName) return users[user]._id
   }
 }
+function _hasUserAlreadyLiked(productName, userName) {
+  for (i in products) {
+    if (products[i].name == productName) {
+      if (products[i].likes.includes(_getUserId(userName))) {
+        return true
+      } else return false
+    }
+  }
+}
 
 signUp("Kiara", "hannig.sebi@gmail.com", "12345")
 signIn("hannig.sebi@gmail.com", "12345")
 signOut("hannig.sebi@gmail.com", "12345")
 rateProduct("Laptop", "Kiara", "5")
-rateProduct("TV", "Thomas", 4.5)
-// 3
-// 4
+rateProduct("TV", "Thomas", 0)
+averageRating("TV")
+likeProduct("TV", "Kiara")
+likeProduct("TV", "Kiara")
+likeProduct("TV", "Thomas")
+likeProduct("TV", "Kiara")
+likeProduct("TV", "Thomas")
+
 //#endregion

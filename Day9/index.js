@@ -397,13 +397,8 @@ console.log("Exercise: Level 3:")
 // )
 // 2
 function mostSpokenLanguages(countries, numberOf) {
-  const mostSpokenLanguages = []
-  countries.forEach((country) => {
-    country.languagess.forEach((element) => {
-      
-    })
-  })
-  return mostSpokenLanguages
+  const allLanguages = []
+  return allLanguages
 }
 console.log(mostSpokenLanguages(countriesData.countries, 10))
 // 3
